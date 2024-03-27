@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanghai Metro</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- 导入d3库 -->
+    <script src="js/d3.min.js"></script>
+</head>
+
+<body>
+    <!-- 网页头部区域 -->
+    <header class="header_style">
+        <div class="logo_area">
+            <img src="img/logo.png" class="logo">
+        </div>
+        <h2 class="title_text">
+            Shanghai Metro Network
+        </h2>
+    </header>
+
+    <div class="main_area">
+        <!-- 左侧线路图区域 -->
+        <section class="right_block">
+            <svg id="map_svg" width="1300px" height="800px"></svg>
+        </section>
+
+        <!-- 右侧操作区域 -->
+        <section class="left_block">
+            <!-- 对地图的相关操作 -->
+            <section class="control_map">
+                <ul>
+                    <li><button id="zoom_in_btn" onclick="zoom_in()">Zoom In</button></li>
+                    <li><button id="zoom_out_btn" onclick="zoom_out()">Zoom Out</button></li>
+                    <li><button id="clear_map_btn" onclick="clear_map()">Clear Canvas</button></li>
+                    <li><button id="load_map_btn" onclick="reload_map()">Reload Map</button></li>
+                </ul>
+            </section>
+            <!-- 下侧主体部分 -->
+            <div class="body">
+                <!-- 站点相关操作模块 -->
+                <div class="item">
+                    <div class="station">
+                        <!-- 添加站点 -->
+                        <div>
+                            <span>Add Station</span>
+                            <input type="text" placeholder="Please Enter Station's Name" id="add_node_name">
+                            <input type="number" placeholder="Please Enter Longitude" id="add_node_lon">
+                            <input type="number" placeholder="Please Enter Latitude" id="add_node_lat">
+                            <button id="add_node_btn" onclick="add_node()">ADD</button>
+                        </div>
+                        <!-- 删除站点 -->
+                        <div>
+                            <span>Delete Station</span>
+                            <input type="text" placeholder="Please Enter Station's Name" id="delete_node_name" required="required">
+                            <button id="delete_node_btn" onclick="delete_node()">DELETE</button>
+                        </div>
+                        <!-- 显示经纬度的范围 -->
+                        <div class="pos_range">
+                        <h4>Geographic Parameter Range</h4>
+                            Longitude: [120.51,122.12]<br>
+                            Latitude: [30.40,31.53]<br>
+                            Ref: 南京东路[31.2381° N, 121.4846° E]<br>
+                        </div>
+                    </div>
+                </div>
+                <!-- 线路相关操作模块 -->
+                <div class="item">
+                    <div class="line">
+                        <!-- 添加线路 -->
+                        <div>
+                            <span>Add Lines</span>
+                            <input type="text" placeholder="Please Enter the Line ID" id="add_line_id">
+                            <span class="smaller_size">Choose The Line's color</span>
+                            <input type="color" id="add_line_color">
+                            <button id="add_line_btn" onclick="add_line()">ADD</button>
+                        </div>
+                        <!-- 向某条线路添加边 -->
+                        <div>
+                            <span>ADD Edge</span>
+                            <select id="line_select"></select>
+                            <input type="text" placeholder="Please Enter Station One" id="edge_vertex_1">
+                            <input type="text" placeholder="Please Enter Station Two" id="edge_vertex_2">
+                            <button id="add_edge_to_line" onclick="add_edge()">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 换乘相关操作模块 -->
+                <div class="item">
+                    <div class="transfer">
+                        <div>
+                            <span>Search For Transfer</span>
+                            <input type="text" placeholder="Please Enter Station One" id="search_station_1">
+                            <input type="text" placeholder="Please Enter Station Two" id="search_station_2">
+                            <button id="search_path_btn" onclick="search_transfer()">Search</button>
+                            <span>Check Metro Line</span>
+                            <select id="select_line_to_view"></select>
+                            <button id="view_line" onclick="view_line()">Exhibit</button>
+                            <ul>
+                                <li><button id="view_transfer_guide_btn" onclick="show_transfer()">Check Transfer</button></li>
+                                <li><button id="show_shortest_path_btn" onclick="show_shortest()">Show Shortest Path</button></li>
+                                <li><button id="show_full_map_btn" onclick="drawMap()">Show Complete Map</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="message_box" id="message_box"><div><span>Launch Successfully!</span></div></div>
+            </div>
+                        <!-- 上侧导航栏 -->
+                        <nav class="nav_bar clearfix">
+                            <ul>
+                                <li class="current">Station</li>
+                                <li>Line</li>
+                                <li>Transfer</li>
+                            </ul>
+                        </nav>
+        </section>
+    </div>
+
+    <!-- 显示换乘指南的模态框 -->
+    <div class="modal" id="modal">
+        <!-- 模态框的内容 -->
+        <div class="modal_content .clearfix">
+            <!-- 标题部分 -->
+            <div class="modal-header">
+                <h3>Transfer Method</h3>
+                <button id="header_close_btn">&times;</button>
+            </div>
+            <!-- 主体部分 -->
+            <div class="modal-body">
+                <div class="body-content" id="body_content"></div>
+            </div>
+            <!-- 底部区域 -->
+            <div class="modal-footer">
+                <button id="footer_close_btn">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/universal.js"></script>
+    <script src="js/Metro.js"></script>
+    <script src="js/Draw.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>

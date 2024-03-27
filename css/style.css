@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* css3盒子模型 */
+    box-sizing: border-box;
+}
+
+button {
+    /* 当鼠标经过button按钮的时候,鼠标变成小手 */
+    cursor: pointer;
+}
+
+li {
+    /*删除li的小圆点*/
+    list-style: none;
+}
+
+/* 使用伪元素清楚浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: "";
+    height: 0;
+
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+svg {
+    /* 避免图片下方出现空隙 */
+    vertical-align: middle;
+    margin-left:10px;
+    border:5px solid rgba(104, 145, 94, 0.8);
+}
+
+.header_style {
+    position: relative;
+    height: 80px;
+    background-color: #a9caeb;
+}
+
+.logo_area {
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60px;
+    width: 60px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+}
+
+.title_text {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* display:block; */
+    height: 60px;
+    line-height: 60px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.main_area {
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    height: 800px;
+}
+
+.left_block {
+    position: absolute;
+    left:-20px;
+    width: 350px;
+    top:0px;
+    height: 100%;
+    background-color: rgba(104, 145, 94, 0.8);
+}
+
+.right_block {
+    position: absolute;
+    left:320px;
+    right:0px;
+    height: 100%;
+    overflow: hidden;
+    /* background-color: cyan; */
+}
+
+.nav_bar {
+    width: 300px;
+    margin: 20px auto 0px;
+}
+
+.nav_bar ul li {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin-top: -20px;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.nav_bar ul .current {
+    color: rgb(133, 174, 132);
+    background-color: white;
+}
+
+.left_block .body {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    margin: 0px auto;
+    margin-top: 120px;
+    border: 1px solid white;
+}
+
+.left_block .body .item:nth-child(n+2) {
+    display: none;
+}
+
+.control_map {
+    width: 300px;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.control_map ul li {
+    float: left;
+    width: 150px;
+    height: 30px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.control_map ul li button {
+    width: 120px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+}
+
+.control_map ul li button:hover {
+    background-color: white;
+    color: rgb(119, 170, 117);
+}
+
+.control_map ul li button:active {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.left_block .body span {
+    padding: 10px;
+    padding-bottom: 0;
+    color: white;
+    display: block;
+}
+
+.left_block .body input {
+    display: block;
+    width: 200px;
+    height: 30px;
+    margin: 8px;
+    margin-top: 15px;
+    padding: 0 10px;
+    background-color: rgba(255, 255, 255);
+    /* background-color: transparent; */
+    color: black;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.left_block .body button {
+    display: block;
+    margin: 8px;
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+}
+
+.left_block .body button:hover {
+    color: black;
+    background-color: white;
+}
+
+.left_block .body button:active {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.station .pos_range {
+    margin-top: 20px;
+    padding-left: 10px;
+    line-height: 30px;
+    color: white;
+}
+
+.station .pos_range h4 {
+    font-weight: 400;
+}
+
+.smaller_size{
+    font-size:13px;
+}
+
+.left_block .body select{
+    margin: 8px;
+    margin-top: 15px;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.left_block .body .transfer li button{
+    width: 150px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top:30px;
+    margin-right: -100px;
+    background-color: transparent;
+    color: white;
+    font-size:15px;
+}
+
+.left_block .body .transfer li button:hover {
+    background-color: white;
+    color: rgb(157, 200, 162);
+}
+
+.left_block .body .transfer li button:active {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.left_block .body .message_box {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    /* background-color: rgba(255, 255, 255, .3); */
+    color:white;
+}
+
+.left_block .body .message_box div{
+    width:100%;
+    height:100%;
+    border-top:1px solid white;
+}
+
+.left_block .body .message_box button{
+    position: absolute;
+    top: 0;
+    right:0;
+    height: 30px;
+    width: 30px;
+    margin:0;
+    border:0;
+    border-radius: 0;
+    font-size:30px;
+    line-height:30px;
+}
+
+.left_block .body .message_box button:hover{
+    color: white;
+    background-color: transparent;
+}
+ 
+.left_block .body .message_box button:active{
+    color: rgb(137, 164, 213);
+}
+
+.left_block .body .message_box span{
+    padding:0;
+    margin-top:15px;
+    margin-left:10px;
+    line-height: 30px;
+}
+
+#view_line{
+    display:inline;
+    right:-100px;
+    width:50px;
+}
+
+.modal{
+    display:none;
+    position:absolute;
+    z-index:1;
+    left:0;
+    top:0;
+    width: 100%;
+    height:100%;
+    background-color:rgba(0,0,0,.4);
+}
+
+.modal_content{
+    background-color: rgb(255, 255, 255);
+    margin:5% auto;
+    width:500px;
+    /* height:400px; */
+    border-radius: 10px;
+}
+
+.modal-header{
+    position:relative;
+    width:100%;
+    height:60px;
+    border-bottom: 3px solid rgb(180, 219, 237);
+}
+
+.modal-header button{
+    position:absolute;
+    top:0;
+    right:0;
+    width:40px;
+    height:40px;
+    margin:0;
+    border:0;
+    font-size:40px;
+    line-height:40px;
+    color:rgb(255, 255, 255);
+    background-color: transparent;
+}
+
+.modal-header button:hover{
+    color:rgb(100,100,100);
+}
+
+.modal-header button:active{
+    color:rgb(50,50,50);
+}
+
+.modal-header h3{
+    margin-left:15px;
+    line-height:60px;
+    font-weight: 600;
+    font-size:22px;
+}
+
+.modal-footer{
+    position:relative;
+    width:100%;
+    height:60px;
+    border-top: 3px solid rgb(180, 219, 237);    
+}
+
+.modal-footer button{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:60px;
+    height:35px;
+    background-color: rgb(126, 152, 127);
+    border:0;
+    border-radius: 5px;
+    color:white;
+    font-size: 15px;
+}
+
+.modal-footer button:hover{
+    background-color: rgb(126, 152, 127);
+}
+
+.modal-footer button:active{
+    background-color: rgb(126, 152, 127);
+}
+
+.modal-body .body-content{
+    margin:10px;
+    background-color: rgb(126, 152, 127);
+    color:white;
+    border-radius: 5px;
+    padding:10px 15px;
+    line-height:25px;
+}
+
+.modal-body .body-content span{
+    background-color: rgb(153, 167, 213);
+    color:white;
+    padding:2px 5px;
+    margin-right:4px;
+    font-size:10px;
+    border-radius: 3px;
+}
